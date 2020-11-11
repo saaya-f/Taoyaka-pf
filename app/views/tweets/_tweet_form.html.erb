@@ -1,0 +1,13 @@
+<%= form_with model: tweet, url:'/tweets', local:true do |f| %>
+  <div class="field row">
+    <%= f.label "タイトル" %>
+    <%= f.text_field :title, class:"col-xs-12 tweet_title" %>
+  </div>
+  <div class="field row">
+    <%= f.label "投稿内容" %>
+    <%= f.text_area :body, class:"col-xs-12 tweet_body" %>
+  </div>
+  <div class="actions row">
+    <%= f.submit "投稿する", class:"btn btn-primary col-xs-12" %>
+  </div>
+<% end %>
