@@ -1,12 +1,23 @@
 Rails.application.routes.draw do
+  
   root to: 'homes#top'
-  devise_for :users
+  
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
+  
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+  
   resources :users, only: [:index, :show, :edit, :update] do
     collection do
       patch 'quit'
       get 'out'
     end
   end
+  
   resources :tweets, except: [:new] do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
