@@ -1,0 +1,30 @@
+<header>
+  <h2 class="nav nav-pills navbar-left logo">
+    <%= link_to "たおやか", root_path %>
+  </h2>
+  <nav>
+    <ul class="nav nav-pills navbar-right">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "マイページ", user_path(current_user.id), class:"header_btn glyficon glyficon-leaf" %>
+        </li>
+        <li>
+          <%= link_to "ユーザー一覧", users_path, class:"header_btn glyficon glyficon-user" %>
+        </li>
+        <li>
+          <%= link_to "投稿一覧", tweets_path, class:"header_btn glyficon glyficon-align-justify" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, class:"header_btn glyficon glyficon-log-out", method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "ログイン", new_user_session_path, class:"header_btn glyficon glyficon-log-in" %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path, class:"header_btn glyficon glyficon-pencil" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

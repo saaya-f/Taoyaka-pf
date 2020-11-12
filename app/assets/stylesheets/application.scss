@@ -15,3 +15,57 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo {
+    padding: 1%;
+    margin: 0;
+    font-family: fantasy;
+}
+
+#header {
+    padding: 30px 25px 10px;
+    border-bottom: 1px solid;
+    top: 0;
+    width: 100%;
+    background-color: 	#ffffff;
+}
+
+.header_btn:hover {
+    background-color: 	#ffffff;
+    color: #FF0000;
+    border-radius: 5px;
+}
+
+.header-name {
+    padding-right: 40px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+#box {
+    display: flex;
+    flex-direction: column;
+
+}
+
+footer {
+    width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-menu {
+    height: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: Hiragino Maru Gothic ProN W4;
+}
