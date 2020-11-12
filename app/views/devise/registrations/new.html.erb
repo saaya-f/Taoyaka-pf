@@ -1,35 +1,32 @@
-<h2>新規会員登録</h2>
-
-<%= link_to 'ゲストログイン（閲覧用）はこちら', users_guest_sign_up_path, method: :post %>
-
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  
-　<div class='field'>
-　  <%= f.label :name %><br />
-　  <%= f.text_field :name, placeholder:"ニックネームを入力してください"%>
-　</div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力してください" %>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <h2>新規会員登録</h2>
+      <%= link_to 'ゲストログイン（閲覧用）はこちら', users_guest_sign_up_path, method: :post %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class='field'>
+          <%= f.label :name %><br />
+          <%= f.text_field :name, placeholder:"ニックネームを入力してください"%>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力してください" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワードを入力してください" %><br />
+          <% if @minimum_password_length %>
+          <%= @minimum_password_length %> 文字以上を入力してください
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"確認のため、もう一度ご入力ください" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "新規登録する" %>
+        </div>
+      <% end %>
+    <%= render "devise/shared/links" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワードを入力してください" %><br />
-    <% if @minimum_password_length %>
-    <%= @minimum_password_length %> 文字以上を入力してください
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"確認のため、もう一度ご入力ください" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録する" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
