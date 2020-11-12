@@ -15,7 +15,7 @@
           <%= link_to "投稿一覧", tweets_path, class:"header_btn glyficon glyficon-align-justify" %>
         </li>
         <li>
-          <%= link_to "ログアウト", destroy_user_session_path, class:"header_btn glyficon glyficon-log-out", method: :delete %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header_btn glyficon glyficon-log-out" %>
         </li>
       <% else %>
         <li>

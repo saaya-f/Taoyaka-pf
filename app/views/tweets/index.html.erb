@@ -1,10 +1,35 @@
 <div class="row">
   <div class="col-xs-3">
-    <h2>プロフィール</h2>
     <h2>新規投稿</h2>
       <%= render 'tweets/tweet_form', tweet: @tweet %>
+    <h2>プロフィール</h2>
+    <!--プロフィール追加する-->
   </div>
   <div class="col-xs-9">
     <h2>投稿一覧</h2>
+      <table>
+        <head>
+          <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th>内容</th>
+            <th>いいね</th>
+            <th>コメント</th>
+          </tr>
+        </head>
+        <body>
+          <% @tweets.each do |tweet| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag @tweet.user, :profile_image_id, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+                <%= link_to tweet.user.name, user_path(tweet.user_id)%></td>
+              <td><%= link_to tweet.title, tweet_path(tweet) %></td>
+              <td><%= tweet.body %></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </body>
+      </table>
   </div>
 </div>
