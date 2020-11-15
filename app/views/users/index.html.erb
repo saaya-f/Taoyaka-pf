@@ -7,6 +7,31 @@
   </div>
   <div class="col-xs-9">
     <h2>ユーザー一覧</h2>
+      <table>
+        <head>
+          <tr>
+            <th></th>
+            <th>ユーザー名</th>
+            <th>フォロー数</th>
+            <th>フォロワー数</th>
+            <th>いいね</th>
+            <th>コメント</th>
+          </tr>
+        </head>
+        <body>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= attachment_image_tag user, :profile_image_id, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
+              <td><%= user.name %></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= link_to "more", user_path(user) %></td>
+            </tr>
+          <% end %> 
+        </body>
+      </table>
   </div>
 </div>
 
