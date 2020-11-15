@@ -3,7 +3,7 @@
     <h2>新規投稿</h2>
       <%= render 'tweets/tweet_form', tweet: @tweet %>
     <h2>プロフィール</h2>
-    <!--プロフィール追加する-->
+      <%= render "users/profile", user: @user %>
   </div>
   <div class="col-xs-9">
     <h2>ユーザー一覧</h2>
@@ -21,7 +21,7 @@
         <body>
           <% @users.each do |user| %>
             <tr>
-              <td><%= attachment_image_tag user, :profile_image_id, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
+              <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
               <td><%= user.name %></td>
               <td></td>
               <td></td>
