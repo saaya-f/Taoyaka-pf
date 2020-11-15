@@ -25,11 +25,18 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
+  
+  # 退会画面
   def out
+    @user = User.find(current_user.id)
   end
   
+  # 退会機能
   def quit
+    @user = User.find(current_user.id)
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
   
   private

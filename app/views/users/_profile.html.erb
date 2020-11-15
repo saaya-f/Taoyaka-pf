@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <%= attachment_image_tag user, :profile_image_id, size: "50x50", format:"jpeg", fallback: "no_image.jpg" %>
+    <%= attachment_image_tag user, :profile_image, size: "50x50", format:"jpeg", fallback: "no_image.jpg" %>
   </tr>
   <tr>
     <th>名前</th>
@@ -25,7 +25,11 @@
     <th><%= user.introduction %></th>
   </tr>
   <tr>
-    <th><%= link_to "", edit_user_path(user), class:"col-xs-12 btn btn-info glyphicon glyphicon-cog" %></th>
+    <th>
+
+        <%= link_to "", edit_user_path(user), class:"col-xs-12 btn btn-info glyphicon glyphicon-cog" %>
+
+    </th>
   </tr>
 </table>
 
