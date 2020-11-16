@@ -32,7 +32,7 @@ https://docs.google.com/spreadsheets/d/1GX3y-Qv2n-WwV28IbOLG60I7V3Hosd6Qgh2mbQVW
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails　5.2.4
 - JSライブラリ：jQuery
-- 仮想環境：Vagrant,VirtualBox
+- IDE : Cloud9
 
 ## 使用素材
 - ぱくたそ https://www.pakutaso.com/
