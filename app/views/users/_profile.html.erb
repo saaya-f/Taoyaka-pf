@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <%= attachment_image_tag user, :profile_image, size: "50x50", format:"jpeg", fallback: "no_image.jpg" %>
+  </tr>
+  <tr>
+    <th>名前</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>年齢</th>
+    <th><%= user.age %></th>
+  </tr>
+  <tr>
+    <th>仕事</th>
+    <th><%= user.work %></th>
+  </tr>
+  <tr>
+    <th>フォロー数</th>
+  </tr>
+  <tr>
+    <th>フォロワー数</th>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <th><%= user.introduction %></th>
+  </tr>
+  <tr>
+    <th>
+
+        <%= link_to "", edit_user_path(user), class:"col-xs-12 btn btn-info glyphicon glyphicon-cog" %>
+
+    </th>
+  </tr>
+</table>
+
+<!--<div class="actions row">-->
+  <!--<% if user == current_user %>-->
+    <!--<%= link_to "", edit_user_path(user) %>-->
+  <!--<% end %>-->
+<!--</div>-->
