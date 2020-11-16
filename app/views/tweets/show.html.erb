@@ -17,23 +17,38 @@
           </tr>
         </head>
         <body>
+          <tr>
+            <td>
+              <%= link_to user_path(@tweet.user) do %>
+              <%= attachment_image_tag @tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+              <%= @tweet.user.name %>
+              <% end %>
+            </td>
+            <td><%= @tweet.title %></td>
+            <td><%= @tweet.body %></td>
+            <td></td>
+            <td>コメント数<%= @tweet.comments.count %></td>
+            <% if @tweet.user == current_user %>
+              <td><%= link_to "編集", edit_tweet_path, class:"btn-sm btn-info" %></td>
+              <td><%= link_to "削除", tweet_path, method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger" %></td>
+            <% end %>
+          </tr>
+        </body>
+      </table>
+      <table>
+        <% @tweet.comments.each do |comment| %>
+          <% comment_user = comment.user %>
             <tr>
               <td>
-                <%= link_to user_path(@tweet.user) do %>
-                <%= attachment_image_tag @tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
-                <%= @tweet.user.name %>
+                <%= link_to user_path(comment_user) do %>
+                  <%= attachment_image_tag comment.user, :profile_image, size: "50x50", format: "jpeg",fallback: "no_image.jpg" %>
+                  <%= comment.user.name %>
                 <% end %>
               </td>
-              <td><%= @tweet.title %></td>
-              <td><%= @tweet.body %></td>
+              <td><%= comment.comment</td>
               <td></td>
-              <td></td>
-              <% if @tweet.user == current_user %>
-                <td><%= link_to "編集", edit_tweet_path, class:"btn-sm btn-info" %></td>
-                <td><%= link_to "削除", tweet_path, method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger" %></td>
-              <% end %>
             </tr>
-        </body>
+        <% end %>
       </table>
   </div>
 </div>
