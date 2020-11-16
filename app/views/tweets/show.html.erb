@@ -45,11 +45,28 @@
                   <%= comment.user.name %>
                 <% end %>
               </td>
-              <td><%= comment.comment</td>
-              <td></td>
+              <td>
+                <%= comment.created_at.strftime('%Y/%m/%d') %>
+              </td>
+              <td>
+                <%= comment.tweet_comment %>
+              </td>
+              <td>
+                <% if comment.user == current_user %>
+                  <%= link_to "削除", tweet_comment_path(comment.tweet, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
+                <% end %>
+              </td>
             </tr>
         <% end %>
       </table>
+      <%= form_with(model:[@tweet, @comment], local: true) do |f| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.text_area :tweet_comment, placeholder: "コメントをここに" %>
+          </div>
+        </div>
+        <%= f.submit "送信する",class:"btn btn-primary" %>
+      <% end %>
   </div>
 </div>
 

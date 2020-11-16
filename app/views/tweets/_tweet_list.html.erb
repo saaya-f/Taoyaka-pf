@@ -22,7 +22,16 @@
           <%= tweet.body %>
         </td>
         <td></td>
-        <td></td>
+        <td>
+          <ul>
+            <li>By
+              <%= tweet.user.name %>
+            </li>
+            <li>コメント数
+              <%= tweet.comments.count %>
+            </li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </body>
