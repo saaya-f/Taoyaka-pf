@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @tweet = Tweet.new
-    @users = User.all
+    @users = User.page(params[:page]).per(2)
   end
 
   def show
     @user = User.find(params[:id])
     @tweet = Tweet.new
-    @tweets = @user.tweets
+    @tweets = @user.tweets.page(params[:page]).per(2)
   end
 
   def edit

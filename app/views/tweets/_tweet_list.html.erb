@@ -21,7 +21,7 @@
         <td>
           <%= tweet.body %>
         </td>
-        <td></td>
+        <td><%= render "favorites/favorite_btn", tweet: tweet %></td>
         <td>
           <ul>
             <li>By
@@ -36,3 +36,4 @@
     <% end %>
   </body>
 </table>
+<%= paginate tweets %>
