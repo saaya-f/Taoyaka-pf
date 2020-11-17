@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-3">
     <h2>新規投稿</h2>
-      <%= render 'tweets/tweet_form', tweet: @tweet %>
+      <%= render 'tweets/tweet_form', tweet: @tweet_new %>
     <h2>プロフィール</h2>
       <%= render "users/profile", user: @user %>
   </div>
@@ -37,7 +37,7 @@
         </body>
       </table>
       <table>
-        <% @tweet.comments.each do |comment| %>
+        <% @comments.each do |comment| %>
           <% comment_user = comment.user %>
             <tr>
               <td>
