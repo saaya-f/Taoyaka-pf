@@ -25,13 +25,14 @@
               <td><%= user.name %></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td><%= user.favorites.count %></td>
+              <td><%= user.comments.count %>コメント</td>
               <td><%= link_to "more", user_path(user) %></td>
             </tr>
           <% end %> 
         </body>
       </table>
+      <%= paginate @users %>
   </div>
 </div>
 

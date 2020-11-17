@@ -1,0 +1,9 @@
+<% if tweet.favorited_by?(current_user) %>
+<li>
+  <%= link_to tweet.favorites.count, tweet_favorites_path(tweet), method: :delete, class: "glyphicon glyphicon-heart" %>
+</li>
+<% else %>
+<li>
+  <%= link_to tweet.favorites.count, tweet_favorites_path(tweet), method: :post, class: "glyphicon glyphicon-heart-empty" %>
+</li>
+<% end %>

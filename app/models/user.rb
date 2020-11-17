@@ -18,4 +18,9 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+  
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+  
 end
