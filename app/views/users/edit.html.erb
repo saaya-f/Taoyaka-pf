@@ -1,7 +1,9 @@
+<!--<%= flash.now[:danger] %>-->
+
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
     <h2>プロフィール編集</h2>
-      <%= form_with model: @user, lacl:true do |f| %>
+      <%= form_with model: @user, local:true do |f| %>
         <div class="field row">
           <%= f.label "プロフィール画像" %>
           <%= attachment_image_tag @user, :profile_image, size: "100x100", format: "jpeg", fallback: "no_image.jpg" %>

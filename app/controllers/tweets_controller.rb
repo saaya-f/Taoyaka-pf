@@ -13,8 +13,10 @@ class TweetsController < ApplicationController
     @tweet.user_id = current_user.id
     @user = current_user
     if @tweet.save
+      flash[:success] = "投稿しました。"
       redirect_to tweet_path(@tweet)
     else
+      flash.now[:danger] = "内容を入力してください。"
       render :index
     end
   end
@@ -34,9 +36,11 @@ class TweetsController < ApplicationController
   def update
     tweet = Tweet.find(params[:id])
     if tweet.update(tweet_params)
+      flash[:success] = "編集内容を保存しました。"
       redirect_to tweet_path(tweet.id)
     else
       @tweet = tweet
+      flash.now[:danger] = "編集内容を入力してください。"
       render :edit
     end
   end
@@ -44,6 +48,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
+    flash[:success] = "投稿内容を削除しました。"
     redirect_to tweets_path
   end
   

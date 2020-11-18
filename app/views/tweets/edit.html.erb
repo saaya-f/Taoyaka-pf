@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
     <h2>投稿内容編集</h2>
-      <%= form_with model: @tweet, lacl:true do |f| %>
+      <%= form_with model: @tweet, local:true do |f| %>
         <div class="field row">
           <%= f.label "タイトル" %>
           <%= f.text_field :title, class:"col-xs-12 tweet_title" %>
