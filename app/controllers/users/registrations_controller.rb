@@ -1,15 +1,17 @@
-class Users::RegistrationsController < ApplicationController
-  # before_action :check_guest, only: :destroy
+class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :check_guest, only: :update
   
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to user_path, notice: 'ゲストユーザーとしてログインしました。'
+    flash[:success] = 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(user)
   end
   
   def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは削除できません'
+    if resource.email == 'guest_uuu@example.com'
+      flash[:danger] = 'ゲストユーザーは削除できません。'
+      redirect_to root_path
     end
   end
 end

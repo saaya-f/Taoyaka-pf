@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-xs-3">
-    <h2>新規投稿</h2>
+    <h3 class="titlebar"> 投稿する</h3>
       <%= render 'tweets/tweet_form', tweet: @tweet %>
-    <h2>プロフィール</h2>
+    <h3 class="titlebar"> Profile</h3>
       <%= render "users/profile", user: @user %>
   </div>
   <div class="col-xs-9">
-    <h2>投稿一覧</h2>
+    <h3 class="titlebar"> 投稿一覧</h3>
       <%= render "tweets/tweet_list", tweets: @tweets %>
   </div>
 </div>

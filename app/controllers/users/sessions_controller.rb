@@ -1,19 +1,17 @@
-class Users::SessionsController < ApplicationController
-  before_action :reject_user, only[:creste]
+class Users::SessionsController < Devise::SessionsController
   
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to user_path, notice: 'ゲストユーザーとしてログインしました。'
+    flash[:success] = 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(user)
   end
   
-
-　
   def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user
       if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
-        flash[:error] = "退会済みです"
+        flash[:danger] = "退会済みです"
         redirect_to new_user_session_path
       end
     else
