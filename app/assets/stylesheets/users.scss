@@ -1,3 +1,21 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.plf-img {
+  margin: 10px;
+}
+
+.field > label {
+  text-align: left;
+  display: block;
+}
+
+.required {
+  background-color: #CD2553;
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 3px;
+  text-align: center;
+}

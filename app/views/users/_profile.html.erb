@@ -26,15 +26,10 @@
   </tr>
   <tr>
     <th>
-
+      <!--ゲストユーザーであれば非表示の条件設定-->
+      <% unless current_user.guest? %>
         <%= link_to "", edit_user_path(user), class:"col-xs-12 btn btn-info glyphicon glyphicon-cog" %>
-
+      <% end %>
     </th>
   </tr>
 </table>
-
-<!--<div class="actions row">-->
-  <!--<% if user == current_user %>-->
-    <!--<%= link_to "", edit_user_path(user) %>-->
-  <!--<% end %>-->
-<!--</div>-->

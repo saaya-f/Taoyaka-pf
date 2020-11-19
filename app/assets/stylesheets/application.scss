@@ -38,8 +38,12 @@ header {
 }
 
 .navbar-default {
-    background-color: #FFFFFF;
+    background-color: #cee4ae;
     border-color: #FFFFFF;
+}
+
+.container-fluid {
+    background-color: #f2ffe5;
 }
 
 .navbar-default .navbar-nav > a {
@@ -51,12 +55,11 @@ header {
 }
 
 .navbar-default .navbar-nav > a:hover{
-    color: #c0c0c0;
+    color: #b4866b;
 }
  
-    
 .navbar-default .navbar-nav > li > a {
-    color: #a9a9a9;
+    color: #b4866b;
     font-weight: bolder;
     border-left: 1px solid;
     border-color: #c0c0c0;
