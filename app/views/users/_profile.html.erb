@@ -1,7 +1,7 @@
-<table>
-  <tr>
-    <%= attachment_image_tag user, :profile_image, size: "50x50", format:"jpeg", fallback: "no_image.jpg" %>
-  </tr>
+<div class="profile-picture">
+  <%= attachment_image_tag user, :profile_image, size: "100x100", format:"jpeg", fallback: "no_image.jpg",class:"img-circle" %>
+</div>
+<table class="table">
   <tr>
     <th>名前</th>
     <th><%= user.name %></th>
@@ -14,22 +14,20 @@
     <th>仕事</th>
     <th><%= user.work %></th>
   </tr>
-  <tr>
-    <th>フォロー数</th>
-  </tr>
-  <tr>
-    <th>フォロワー数</th>
-  </tr>
-  <tr>
-    <th>自己紹介</th>
-    <th><%= user.introduction %></th>
-  </tr>
-  <tr>
-    <th>
-      <!--ゲストユーザーであれば非表示の条件設定-->
-      <% unless current_user.guest? %>
-        <%= link_to "", edit_user_path(user), class:"col-xs-12 btn btn-info glyphicon glyphicon-cog" %>
-      <% end %>
-    </th>
-  </tr>
 </table>
+  <!--<tr>-->
+    <!--<th>フォロー数</th>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<th>フォロワー数</th>-->
+  <!--</tr>-->
+  <div class="introduction-area">
+    <p class="profile-introduction">自己紹介</p>
+    <%= user.introduction %>
+  </div>
+  <!--ゲストユーザーであれば非表示の条件設定-->
+  <div>
+    <% unless current_user.guest? %>
+      <%= link_to "", edit_user_path(user), class:"btn btn-info btn-block glyphicon glyphicon-cog" %>
+    <% end %>
+  </div>

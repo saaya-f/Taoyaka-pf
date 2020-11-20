@@ -8,7 +8,7 @@
 
 .field > label {
   text-align: left;
-  display: block;
+  display: inline-block;
 }
 
 .required {
@@ -18,4 +18,18 @@
   padding: 4px;
   border-radius: 3px;
   text-align: center;
+}
+.quit-message {
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.guest-login-link {
+    font-size: 20px;
+}
+
+.user-show-link {
+  width: 100%;
+  text-align: right;
 }

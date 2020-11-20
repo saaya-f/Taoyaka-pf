@@ -1,29 +1,29 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
-    <h2>ログイン</h2>
-      <%= link_to 'ゲストログイン（閲覧用）はこちら', users_guest_sign_in_path, method: :post %>
+    <h2 class="titlebar">ログイン</h2>
+      <%= link_to 'ゲストログイン（閲覧用）はこちら', users_guest_sign_in_path, method: :post, class:"guest-login-link" %>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力してください" %>
+        <div class="field row">
+          <label class="user-email"><span class="required">必須</span> メールアドレス</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力してください", class:"col-xs-12" %>
         </div>
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", placeholder:"パスワードを入力してください" %>
+        <div class="field row">
+         <label class="user-password"><span class="required">必須</span> パスワード</label>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder:"パスワードを入力してください", class:"col-xs-12" %>
         </div>
       
         <% if devise_mapping.rememberable? %>
-          <div class="field">
+          <div class="field row">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, "次回から自動的にログインする" %>
+            <%= f.label :remember_me, "次回から自動的にログインする", class:"auto-login" %>
           </div>
         <% end %>
 
-        <div class="actions">
-          <%= f.submit "ログイン" %>
+        <div class="actions row">
+          <%= f.submit "ログイン", class:"btn btn-success btn-block" %>
         </div>
       <% end %>
-    <%= render "devise/shared/links" %>
+      <div class="user-show-link"><%= render "devise/shared/links" %></div>
   </div>
 </div>
 

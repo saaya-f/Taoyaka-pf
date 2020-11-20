@@ -26,6 +26,10 @@
     display: flex;
     flex-direction: column;
     padding-top: 90px;
+    background-image: url("top-picture.jpg");
+    background-color: rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+    background-size: 100%, 100%;
 }
 
 header {
@@ -43,7 +47,7 @@ header {
 }
 
 .container-fluid {
-    background-color: #f2ffe5;
+    background-color: #FFFFFF;
 }
 
 .navbar-default .navbar-nav > a {
@@ -94,3 +98,18 @@ header {
     border-bottom: 2px dotted;
     border-color: #808080;
 }
+
+.profile-picture {
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+p.profile-introduction {
+    font-weight: bolder;
+}
+
+.introduction-area {
+    margin-bottom: 10px;
+}
+
