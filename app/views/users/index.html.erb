@@ -7,13 +7,13 @@
   </div>
   <div class="col-xs-9">
     <h3 class="titlebar"> ユーザーの皆様</h3>
-      <table>
+      <table class="table">
         <head>
           <tr>
             <th></th>
             <th>ユーザー名</th>
-            <th>フォロー数</th>
-            <th>フォロワー数</th>
+            <!--<th>フォロー数</th>-->
+            <!--<th>フォロワー数</th>-->
             <th>いいね</th>
             <th>コメント</th>
           </tr>
@@ -23,16 +23,18 @@
             <tr>
               <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
               <td><%= user.name %></td>
-              <td></td>
-              <td></td>
-              <td><%= user.favorites.count %></td>
-              <td><%= user.comments.count %>コメント</td>
+              <!--<td>フォロー数</td>-->
+              <!--<td>フォロワー数</td>-->
+              <td><%= user.favorites.count %> 件</td>
+              <td><%= user.comments.count %> 件</td>
               <td><%= link_to "more", user_path(user) %></td>
             </tr>
           <% end %> 
         </body>
       </table>
-      <%= paginate @users %>
+      <div class="text-center">
+        <%= paginate @users %>
+      </div>
   </div>
 </div>
 

@@ -51,7 +51,7 @@ header {
 }
 
 .navbar-default .navbar-nav > a {
-    color: #000;
+    color: #000000;
     font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
     font-size: 40px;
     font-weight: bolder;
@@ -111,5 +111,95 @@ p.profile-introduction {
 
 .introduction-area {
     margin-bottom: 10px;
+}
+
+// ページネーション自体のデザイン
+.pagination > li > a {
+  border: none;     /*枠線をなくす*/
+  color: #513743;   /*文字の色を変える*/
+  justify-content: center;
+}
+
+// 表示しているページ番号のデザイン
+.pagination > .active > a {     
+  background: #b4866b;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+// ホバー時のデザイン
+.pagination > li > a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+// カルーセルの高さの最小値を設定
+.carousel {
+  height: 200px;
+  margin:auto;
+}
+
+// itenの高さ設定により画像表示行きの高さを固定
+.carousel .item {
+  height: 100%;
+}
+
+// 画像の位置を固定
+.carousel img {
+  position: absolute;
+  width: 100%;
+}
+
+@media (min-width: 320px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:400px;
+  }
+}
+
+.main-visual {
+  padding: 20px;
+  width: 100%;
+  height: 300px;
+}
+
+.main-visual-content {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+}
+
+.main-visual-about {
+  font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.main {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-label {
+  font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
 }
 
