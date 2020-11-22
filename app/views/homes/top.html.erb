@@ -1,3 +1,93 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<!--スライドショー ここから-->
+<div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+    <li data-target="#sampleCarousel" data-slide-to="1"></li>
+    <li data-target="#sampleCarousel" data-slide-to="2"></li>
+    <li data-target="#sampleCarousel" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="assets/sunrise.jpg", alt="First slide">
+    </div>
+    <div class="item">
+      <img src="assets/daytime.jpg" alt="Second slide">
+    </div>
+    <div class="item">
+      <img src="assets/sunset.jpg" alt="Third slide">
+    </div>
+    <div class="item">
+      <img src="assets/night.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+<!--スライドショーここまで-->
+
+<!--About部分 ここから-->
+<div class="main-visual">
+  <div class="main-visual-content">
+    <p class="main-visual-about">
+      About たおやか？
+    </p>
+    <p class="main-visual-text">
+      日々の頑張りを誰かと共有したい、認めてもらいたい。<br>
+      自分が生活できているのは誰かのおかげ。当たり前に過ぎていく物事に目を向け、感謝したい。<br>
+      <br>
+      そんな女性たちを応援するためにサイトを立ち上げました。<br>
+      <br>
+      交流を通じて<br>
+      自分自身を高めることができたら・・・<br>
+      強くて真のある自分に成長できたら・・・<br>
+      ぜひ、たおやかを通じて素晴らしい体験をしていただけたらと思います。
+      </p>
+      <div class="main-visual-link">
+        <% unless user_signed_in? %>
+          <%= link_to "新規登録はこちらから →", new_user_registration_path %>
+        <% end %>
+      </div>
+  </div>
+</div>
+<!--About部分 ここまで-->
+
+<!--新規投稿部分　ここから-->
+<div class="row">
+  <div class="main">
+    <div class="main-label"> 新着投稿</div>
+    <div class="main-tweet-list">
+      <table class="table">
+        <% @tweets.each do |tweet| %>
+          <tr>
+            <td>
+              <%= attachment_image_tag tweet.user, :profile_image_id, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+              <%= tweet.user.name %></td>
+            <td>
+              <%= tweet.title %>
+            </td>
+            <td>
+              <%= tweet.body %>
+            </td>
+            <td class="favorite-btn">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              <%= tweet.favorites.count %> 件
+            </td>
+            <td class="comment-sum">
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <%= tweet.comments.count %> 件
+            </td>
+            <td>
+              <!--lメソッドで現地時間に対応-->
+              <%= l tweet.created_at %>
+            </td>
+          </tr>
+      <% end %>
+      </table>
+    </div>
+    <div class="main-link">
+      <% unless user_signed_in? %>
+        <%= link_to "続きをみるにはこちらから →", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!--新規投稿部分 ここまで-->
 

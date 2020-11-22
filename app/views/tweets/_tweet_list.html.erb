@@ -1,5 +1,5 @@
 <!--投稿一覧パーシャル-->
-<table>
+<table class="table table-hover">
   <head>
     <tr>
       <th></th>
@@ -21,19 +21,14 @@
         <td>
           <%= tweet.body %>
         </td>
-        <td><%= render "favorites/favorite_btn", tweet: tweet %></td>
-        <td>
-          <ul>
-            <li>By
-              <%= tweet.user.name %>
-            </li>
-            <li>コメント数
-              <%= tweet.comments.count %>
-            </li>
-          </ul>
+        <td class="favorite-btn"><%= render "favorites/favorite_btn", tweet: tweet %></td>
+        <td class="comment-sum">
+          コメント数: <%= tweet.comments.count %> 件
         </td>
       </tr>
     <% end %>
   </body>
 </table>
-<%= paginate tweets %>
+<div class="text-center">
+  <%= paginate tweets %>
+</div>

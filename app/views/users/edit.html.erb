@@ -1,38 +1,38 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
-    <h2>プロフィール編集</h2>
-      <%= form_with model: @user, lacl:true do |f| %>
-        <div class="field row">
-          <%= f.label "プロフィール画像" %>
-          <%= attachment_image_tag @user, :profile_image, size: "100x100", format: "jpeg", fallback: "no_image.jpg" %>
-        </div>
-        <div>
-          <%= f.attachment_field :profile_image, class:"user_image" %>
+    <h3 class="titlebar"> プロフィール編集フォーム</h3>
+      <%= form_with model: @user, local:true do |f| %>
+        <div class="field">
+          <label class="user-image"> プロフィール画像</label>
+          <%= attachment_image_tag @user, :profile_image, class:"plf-img", size: "200x200", format: "jpeg", fallback: "no_image.jpg" %>
+          <%= f.attachment_field :profile_image %>
         </div>
         <div class="field row">
-          <%= f.label "名前" %>
-          <%= f.text_field :name, class:"col-xs-12 user_name" %>
+          <label class="user-name"><span class="required">必須</span> 名前</label>
+          <%= f.text_field :name, class:"col-xs-12", placefolder: "名前を入力してください", autofocus: "true" %>
         </div>
         <div class="field row">
-          <%= f.label "メールアドレス" %>
-          <%= f.email_field :email, class:"col-xs-12 user_email" %>
+          <label class="user-email"><span class="required">必須</span> メールアドレス</label>
+          <%= f.email_field :email, class:"col-xs-12", placeholder: "メールアドレスを入力してください" %>
         </div>
         <div class="field row">
-          <%= f.label "年齢" %>
-          <%= f.text_field :age, class:"col-xs-12 user_ " %>
+          <label class="user-age"><span class="required">必須</span> 年齢</label><br>
+          <%= f.text_field :age, class:"col-xs-4" %>
         </div>
         <div class="field row">
-          <%= f.label "仕事" %>
-          <%= f.text_field :work, class:"col-xs-12 user_ work" %>
+          <label class="user-work"><span class="required">必須</span> 仕事</label><br>
+          <%= f.text_field :work, class:"col-xs-4 user_ work" %>
         </div>
         <div class="field row">
           <%= f.label "自己紹介文" %>
-          <%= f.text_field :introduction, class:"col-xs-12 user_introduction" %>
+          <%= f.text_area :introduction, class:"col-xs-12 user_introduction", rows: "5", placeholder: "自己紹介も兼ねて、自分のことを知ってもらいましょう！" %>
         </div>
         <div class="actions row">
-          <%= f.submit "編集内容を保存する", class:"col-xs-12 btn btn-success col-xs-12" %>
+          <%= f.submit "編集内容を保存する", class:"col-xs-6 btn btn-success col-xs-12" %>
         </div>
       <% end %>
-    <%= link_to "退会する", out_users_path(@user), class:"col-xs-12 btn btn-danger" %>
+    <div class="out-btn">
+      <%= link_to "退会する", out_users_path, class:"col-xs-6 col-xs-offset-3 btn btn-danger" %>
+    </div>
   </div>
 </div>

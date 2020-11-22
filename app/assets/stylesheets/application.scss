@@ -22,50 +22,186 @@
   box-sizing: border-box;
 }
 
-.logo {
-    padding: 1%;
-    margin: 0;
-    font-family: fantasy;
-}
-
-#header {
-    padding: 30px 25px 10px;
-    border-bottom: 1px solid;
-    top: 0;
-    width: 100%;
-    background-color: #ffffff;
-}
-
-.header_btn:hover {
-    background-color: #ffffff;
-    color: #FF0000;
-    border-radius: 5px;
-}
-
-.header-name {
-    padding-right: 40px;
-    padding-bottom: 10px;
-    font-weight: bold;
-}
-
 #box {
     display: flex;
     flex-direction: column;
-
+    padding-top: 90px;
+    background-image: url("top-picture.jpg");
+    background-color: rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+    background-size: 100%, 100%;
 }
 
-footer {
+header {
+    height: 90px;
+}
+
+.nav > li > a {
+    padding: 5px, 0;
+    margin: 20px;
+}
+
+.navbar-default {
+    background-color: #cee4ae;
+    border-color: #FFFFFF;
+}
+
+.container-fluid {
+    background-color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > a {
+    color: #000000;
+    font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+    font-size: 40px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav > a:hover{
+    color: #b4866b;
+}
+ 
+.navbar-default .navbar-nav > li > a {
+    color: #b4866b;
+    font-weight: bolder;
+    border-left: 1px solid;
+    border-color: #c0c0c0;
+}
+
+.navbar-left {
+    margin: 20px;
+}
+
+.footer {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: Hiragino Maru Gothic ProN W4;
+}
+
+#footer {
     width: 100%;
     background-color: #ffffff;
     text-align: center;
     margin-top: auto;
 }
 
-.footer-menu {
-    height: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-family: Hiragino Maru Gothic ProN W4;
+.row {
+    margin: 20px;
 }
+
+.titlebar {
+    color: #513743;
+    border-bottom: 2px dotted;
+    border-color: #808080;
+}
+
+.profile-picture {
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+p.profile-introduction {
+    font-weight: bolder;
+}
+
+.introduction-area {
+    margin-bottom: 10px;
+}
+
+// ページネーション自体のデザイン
+.pagination > li > a {
+  border: none;     /*枠線をなくす*/
+  color: #513743;   /*文字の色を変える*/
+  justify-content: center;
+}
+
+// 表示しているページ番号のデザイン
+.pagination > .active > a {     
+  background: #b4866b;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+// ホバー時のデザイン
+.pagination > li > a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+// カルーセルの高さの最小値を設定
+.carousel {
+  height: 200px;
+  margin:auto;
+}
+
+// itenの高さ設定により画像表示行きの高さを固定
+.carousel .item {
+  height: 100%;
+}
+
+// 画像の位置を固定
+.carousel img {
+  position: absolute;
+  width: 100%;
+}
+
+@media (min-width: 320px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:400px;
+  }
+}
+
+.main-visual {
+  padding: 20px;
+  width: 100%;
+  height: 300px;
+}
+
+.main-visual-content {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+}
+
+.main-visual-about {
+  font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.main {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-label {
+  font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+}
+
+

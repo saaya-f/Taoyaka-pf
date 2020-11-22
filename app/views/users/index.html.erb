@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-xs-3">
-    <h2>新規投稿</h2>
+    <h3 class="titlebar"> 投稿する</h3>
       <%= render 'tweets/tweet_form', tweet: @tweet %>
-    <h2>プロフィール</h2>
+    <h3 class="titlebar"> Profile</h3>
       <%= render "users/profile", user: @user %>
   </div>
   <div class="col-xs-9">
-    <h2>ユーザー一覧</h2>
-      <table>
+    <h3 class="titlebar"> ユーザーの皆様</h3>
+      <table class="table">
         <head>
           <tr>
             <th></th>
             <th>ユーザー名</th>
-            <th>フォロー数</th>
-            <th>フォロワー数</th>
+            <!--<th>フォロー数</th>-->
+            <!--<th>フォロワー数</th>-->
             <th>いいね</th>
             <th>コメント</th>
           </tr>
@@ -23,16 +23,18 @@
             <tr>
               <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
               <td><%= user.name %></td>
-              <td></td>
-              <td></td>
-              <td><%= user.favorites.count %></td>
-              <td><%= user.comments.count %>コメント</td>
+              <!--<td>フォロー数</td>-->
+              <!--<td>フォロワー数</td>-->
+              <td><%= user.favorites.count %> 件</td>
+              <td><%= user.comments.count %> 件</td>
               <td><%= link_to "more", user_path(user) %></td>
             </tr>
           <% end %> 
         </body>
       </table>
-      <%= paginate @users %>
+      <div class="text-center">
+        <%= paginate @users %>
+      </div>
   </div>
 </div>
 

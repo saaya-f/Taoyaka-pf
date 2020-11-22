@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   
   devise_for :users, controllers: {
-    passwords: 'users/passwords'
+    registrations: 'users/registrations',
+    # sessions: 'users/sessions'
+    # passwords: 'users/passwords'
   }
   
   devise_scope :user do
