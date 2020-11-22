@@ -17,11 +17,11 @@
         </div>
         <div class="field row">
           <label class="user-age"><span class="required">必須</span> 年齢</label><br>
-          <%= f.text_field :age, class:"col-xs-4" %>
+          <%= f.select :age, User.ages.keys.map {|k| [k, k]}, {}, { class: "col-xs-4", data: {} } %>
         </div>
         <div class="field row">
           <label class="user-work"><span class="required">必須</span> 仕事</label><br>
-          <%= f.text_field :work, class:"col-xs-4 user_ work" %>
+          <%= f.select :work, User.works.keys.map {|k| [k, k]}, {}, { class: "col-xs-4", data: {} } %>
         </div>
         <div class="field row">
           <%= f.label "自己紹介文" %>

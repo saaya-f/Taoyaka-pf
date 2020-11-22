@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
+  enum age: [ "10代", "20代", "30代", "40代", "50代", "50代以上" ]
+  enum work: [ "事務職", "医療・福祉職", "サービス業", "専業主婦", "学生", "その他" ]
+  
   # ゲストユーザー
   def self.guest
     find_or_create_by!(email: 'guest_ggg@example.com') do |user|
@@ -28,5 +31,5 @@ class User < ApplicationRecord
   def guest?
     self.email == 'guest_ggg@example.com'
   end
-  
+
 end
