@@ -41,7 +41,9 @@
       ぜひ、たおやかを通じて素晴らしい体験をしていただけたらと思います。
       </p>
       <div class="main-visual-link">
-        <%= link_to "新規登録はこちらから →", new_user_registration_path %>
+        <% unless user_signed_in? %>
+          <%= link_to "新規登録はこちらから →", new_user_registration_path %>
+        <% end %>
       </div>
   </div>
 </div>
@@ -51,9 +53,39 @@
 <div class="row">
   <div class="main">
     <div class="main-label"> 新着投稿</div>
-    <div class="main-tweet-list"></div>
+    <div class="main-tweet-list">
+      <table class="table">
+        <% @tweets.each do |tweet| %>
+          <tr>
+            <td>
+              <%= attachment_image_tag tweet.user, :profile_image_id, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+              <%= tweet.user.name %></td>
+            <td>
+              <%= tweet.title %>
+            </td>
+            <td>
+              <%= tweet.body %>
+            </td>
+            <td class="favorite-btn">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              <%= tweet.favorites.count %> 件
+            </td>
+            <td class="comment-sum">
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <%= tweet.comments.count %> 件
+            </td>
+            <td>
+              <!--lメソッドで現地時間に対応-->
+              <%= l tweet.created_at %>
+            </td>
+          </tr>
+      <% end %>
+      </table>
+    </div>
     <div class="main-link">
-      <%= link_to "続きをみるにはこちらから →", new_user_session_path %>
+      <% unless user_signed_in? %>
+        <%= link_to "続きをみるにはこちらから →", new_user_session_path %>
+      <% end %>
     </div>
   </div>
 </div>
