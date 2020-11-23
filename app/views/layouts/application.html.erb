@@ -21,9 +21,11 @@
     </div>
     <div class="container">
       <!--サクセスメッセージ 、エラーメッセージ-->
-      <% flash.each do |key, value| %>
-        <%= content_tag(:p, value, class: "alert alert-#{key}") %>
-      <% end %>
+      <div class="text-center">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:p, value, class: "alert alert-#{key}") %>
+        <% end %>
+      </div>
       
       <%= yield %>      
     </div>

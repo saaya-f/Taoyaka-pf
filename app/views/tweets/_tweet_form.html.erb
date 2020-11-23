@@ -1,4 +1,5 @@
 <%= form_with model: tweet, url:'/tweets', local:true do |f| %>
+  <%= render "layouts/error", obj: f.object %>
   <div class="field row">
     <%= f.label "タイトル" %>
     <%= f.text_area :title, class:"col-xs-12 tweet_title", rows: "2", autofocus: "true", placeholder: "タイトルを入力しましょう" %>
