@@ -3,13 +3,13 @@ class TweetsController < ApplicationController
 
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.page(params[:page]).per(2)
+    @tweets = Tweet.page(params[:page]).per(5)
     @user = current_user
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
-    @tweets = Tweet.page(params[:page]).per(2)
+    @tweets = Tweet.page(params[:page]).per(5)
     @tweet.user_id = current_user.id
     @user = current_user
     if @tweet.save
@@ -26,7 +26,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @user = @tweet.user
     @comment = Comment.new
-    @comments = @tweet.comments.page(params[:page]).per(2)
+    @comments = @tweet.comments.page(params[:page]).per(5)
   end
 
   def edit

@@ -5,17 +5,18 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @tweet = Tweet.new
-    @users = User.page(params[:page]).per(2)
+    @users = User.page(params[:page]).per(5)
   end
 
   def show
     @user = User.find(params[:id])
     @tweet = Tweet.new
-    @tweets = @user.tweets.page(params[:page]).per(2)
+    @tweets = @user.tweets.page(params[:page]).per(5)
   end
 
   def edit
     @user = User.find(params[:id])
+    redirect_not_match_user(@user.id)
   end
 
   def update
@@ -47,5 +48,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:profile_image, :name, :email, :age, :work, :introduction)
+  end
+
+  def redirect_not_match_user(user_id)
+    redirect_to user_path(current_user.id) if current_user.id != user_id
   end
 end

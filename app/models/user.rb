@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :validatable, password_length: 6..50
 
-  validates :name, presence: true, length: { in: 2..25 }
+  validates :name, presence: true, length: { in: 2..20 }
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :age, presence: true, allow_blank: true
   validates :work, presence: true, allow_blank: true
@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  enum age: %w[10代 20代 30代 40代 50代 60代以上]
+  enum age: [ "10代", "20代", "30代", "40代", "50代", "60代以上"]
   enum work: ["事務職", "医療・福祉職", "サービス業", "専業主婦", "学生", "その他"]
 
   # ゲストユーザー
