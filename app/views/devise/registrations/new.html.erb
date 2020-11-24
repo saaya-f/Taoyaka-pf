@@ -5,7 +5,7 @@
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class='field row'>
-          <label class="user-name"><span class="required">必須</span> 名前</label>
+          <label class="user-name"><span class="required">必須</span> ニックネーム</label>
           <%= f.text_field :name, placeholder:"ニックネームを入力してください", class:"col-xs-12"%>
         </div>
         <div class="field row">

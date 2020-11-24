@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
       flash[:success] = "投稿しました。"
       redirect_to tweet_path(@tweet)
     else
-      flash.now[:danger] = "内容を入力してください。"
+      flash.now[:danger] = "投稿内容を入力してください。"
       render :index
     end
   end

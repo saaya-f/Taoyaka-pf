@@ -5,9 +5,13 @@ class CommentsController < ApplicationController
     tweet = Tweet.find(params[:tweet_id])
     comment = current_user.comments.new(comment_params)
     comment.tweet_id = tweet.id
-    comment.save
-    flash[:success] = "コメントしました。"
-    redirect_to tweet_path(tweet)
+    if comment.save
+      flash[:success] = "コメントしました。"
+      redirect_to tweet_path(tweet)
+    else
+      flash[:danger] = "コメントを入力してください。"
+      redirect_to tweet_path(tweet)
+    end
   end
   
   def destroy

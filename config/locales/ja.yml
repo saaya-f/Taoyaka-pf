@@ -12,3 +12,21 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+  
+  activerecord:
+    models:
+      user: "会員"
+      tweet: "投稿"
+      comment: "コメント"
+    attributes:
+      user:
+        name: "ニックネーム"
+        email: "メールアドレス"
+        age: "年齢"
+        work: "職業"
+      tweet:
+        title: "タイトル"
+        body: "投稿内容"
+      comment:
+        tweet_comment: "コメント"
+      

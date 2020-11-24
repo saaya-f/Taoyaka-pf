@@ -3,6 +3,7 @@
     <h2 class="titlebar">ログイン</h2>
       <%= link_to 'ゲストログイン（閲覧用）はこちら', users_guest_sign_in_path, method: :post, class:"guest-login-link" %>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field row">
           <label class="user-email"><span class="required">必須</span> メールアドレス</label>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力してください", class:"col-xs-12" %>

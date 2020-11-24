@@ -3,6 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  devise :validatable, password_length: 6..50
+  
+  validates :name, presence: true, length: { in: 2..25 }
+  validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
+  validates :age, presence: true, allow_blank: true
+  validates :work, presence: true, allow_blank: true
+  validates :introduction, presence: true, length: { maximum: 150}, allow_blank: true
   
   attachment :profile_image
   has_many :tweets, dependent: :destroy
