@@ -70,6 +70,7 @@
       
       <!--コメント投稿フォーム-->
       <%= form_with(model:[@tweet, @comment], local: true) do |f| %>
+        <!--<%= render "devise/shared/error_messages", resource: @comment %>-->
         <!--<% flash.each do |name, msg| %>-->
           <!--<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>-->
         <!--<% end %>-->
