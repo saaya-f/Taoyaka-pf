@@ -26,11 +26,39 @@
     display: flex;
     flex-direction: column;
     padding-top: 90px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
     background-image: url("top-picture.jpg");
     background-color: rgba(255,255,255,0.8);
     background-blend-mode:lighten;
     background-size: 100%, 100%;
+    min-height: 100vh;
+    position: relative;
 }
+
+// deviseサクセスメッセージ ここから
+.alert {
+  margin-top: 7px;
+}
+
+p.alert.alert-notice {
+  background-color: #d4edda;
+  color: #155724;
+  text-align: center;
+  border: 1px solid transparent;
+  border-color: #c3e6cb;
+  border-radius: 0.25rem;
+}
+
+p.alert.alert-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  text-align: center;
+  border: 1px solid transparent;
+  border-color: #f5c6cb;
+  border-radius: 0.25rem;
+}
+// ここまで
 
 header {
     height: 90px;
@@ -87,6 +115,8 @@ header {
     background-color: #ffffff;
     text-align: center;
     margin-top: auto;
+    position: absolute;
+    bottom: 0;
 }
 
 .row {

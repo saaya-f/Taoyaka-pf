@@ -25,6 +25,7 @@
     <p class="profile-introduction">自己紹介</p>
     <%= user.introduction %>
   </div>
+
   <!--ゲストユーザーであれば非表示の条件設定-->
   <div>
     <% unless current_user.guest? %>

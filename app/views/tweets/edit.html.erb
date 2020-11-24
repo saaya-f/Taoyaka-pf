@@ -2,6 +2,7 @@
   <div class="col-xs-6 col-xs-offset-3">
     <h3 class="titlebar"> 投稿内容編集フォーム</h2>
       <%= form_with model: @tweet, local:true do |f| %>
+        <%= render "layouts/error", obj: f.object %>
         <div class="field row">
           <label class="tweet-title"><span class="required">必須</span> タイトル</label>
           <%= f.text_area :title, class:"col-xs-12", rows:"2", autofocus: "true" %>
