@@ -58,7 +58,7 @@
         <% @tweets.each do |tweet| %>
           <tr>
             <td>
-              <%= attachment_image_tag tweet.user, :profile_image_id, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+              <%= attachment_image_tag tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
               <%= tweet.user.name %></td>
             <td>
               <%= tweet.title %>
