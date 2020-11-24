@@ -66,7 +66,7 @@ gem 'devise'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
@@ -79,5 +79,8 @@ group :production do
 end
 
 # 日本語化
-gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
+gem 'rails-i18n', '~> 5.1'
+
+# コード解析
+gem 'rubocop', require: false

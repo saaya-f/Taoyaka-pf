@@ -1,12 +1,12 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @tweet = Tweet.new
     @tweets = Tweet.page(params[:page]).per(2)
     @user = current_user
   end
-  
+
   def create
     @tweet = Tweet.new(tweet_params)
     @tweets = Tweet.page(params[:page]).per(2)
@@ -28,11 +28,11 @@ class TweetsController < ApplicationController
     @comment = Comment.new
     @comments = @tweet.comments.page(params[:page]).per(2)
   end
-  
+
   def edit
     @tweet = Tweet.find(params[:id])
   end
-  
+
   def update
     tweet = Tweet.find(params[:id])
     if tweet.update(tweet_params)
@@ -44,16 +44,16 @@ class TweetsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
     flash[:success] = "投稿内容を削除しました。"
     redirect_to tweets_path
   end
-  
+
   private
-  
+
   def tweet_params
     params.require(:tweet).permit(:title, :body)
   end

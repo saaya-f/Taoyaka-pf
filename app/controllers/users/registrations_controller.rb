@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  
   def new_guest
     user = User.guest
     sign_in user
