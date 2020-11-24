@@ -6,24 +6,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
-# Include: **/*.gemfile, **/Gemfile, **/gems.rb
-Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
-
 # Offense count: 3
 # Configuration parameters: IgnoredMethods.
 Metrics/AbcSize:
   Max: 21
-
-# Offense count: 1
-# Configuration parameters: CountComments, CountAsOne, ExcludedMethods.
-# ExcludedMethods: refine
-Metrics/BlockLength:
-  Max: 37
 
 # Offense count: 2
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods.
@@ -37,12 +23,6 @@ Metrics/MethodLength:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/GlobalStdStream:
-  Exclude:
-    - 'config/environments/production.rb'
-
 # Offense count: 2
 Style/IdenticalConditionalBranches:
   Exclude:
@@ -54,18 +34,3 @@ Style/IdenticalConditionalBranches:
 Style/RedundantFetchBlock:
   Exclude:
     - 'config/puma.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: MinSize.
-# SupportedStyles: percent, brackets
-Style/SymbolArray:
-  EnforcedStyle: brackets
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, MinSize, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  Exclude:
-    - 'app/models/user.rb'

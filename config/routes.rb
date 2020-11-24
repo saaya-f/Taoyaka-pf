@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_up', to: 'users/registrations#new_guest'
   end
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: %i[index show edit update] do
     collection do
       patch 'quit'
       get 'out'
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :tweets, except: [:new] do
-    resources :comments, only: [:create, :destroy]
-    resource :favorites, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy]
+    resource :favorites, only: %i[create destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

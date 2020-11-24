@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  enum age: ["10代", "20代", "30代", "40代", "50代", "60代以上"]
+  enum age: %w[10代 20代 30代 40代 50代 60代以上]
   enum work: ["事務職", "医療・福祉職", "サービス業", "専業主婦", "学生", "その他"]
 
   # ゲストユーザー
