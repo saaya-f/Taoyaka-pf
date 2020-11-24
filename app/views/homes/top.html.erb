@@ -57,15 +57,10 @@
       <table class="table">
         <% @tweets.each do |tweet| %>
           <tr>
-            <td>
-              <%= attachment_image_tag tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
-              <%= tweet.user.name %></td>
-            <td>
-              <%= tweet.title %>
-            </td>
-            <td>
-              <%= tweet.body %>
-            </td>
+            <td><%= attachment_image_tag tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
+            <td><%= tweet.user.name %></td>
+            <td><%= tweet.title %></td>
+            <td><%= truncate((tweet.body), length: 15) %></td>
             <td class="favorite-btn">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
               <%= tweet.favorites.count %> 件

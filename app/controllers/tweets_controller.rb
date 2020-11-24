@@ -3,13 +3,14 @@ class TweetsController < ApplicationController
 
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.page(params[:page]).per(5)
+    # 退会していない全ユーザーの投稿を取得（退会ユーザの投稿は取得されない）
+    @tweets = Tweet.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
     @user = current_user
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
-    @tweets = Tweet.page(params[:page]).per(5)
+    @tweets = Tweet.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
     @tweet.user_id = current_user.id
     @user = current_user
     if @tweet.save
@@ -26,7 +27,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @user = @tweet.user
     @comment = Comment.new
-    @comments = @tweet.comments.page(params[:page]).per(5)
+    # 退会していない全ユーザーのコメントを取得（退会ユーザのコメントは取得されない）
+    @comments = @tweet.comments.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
   end
 
   def edit
