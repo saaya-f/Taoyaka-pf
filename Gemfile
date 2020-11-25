@@ -74,7 +74,9 @@ gem 'jquery-rails'
 
 gem 'pry-byebug'
 
+# ファイルベースで環境変数を管理するgem
 gem 'dotenv-rails'
+# 本番環境のMySQL利用に必要なgem
 group :production do
   gem 'mysql2'
 end

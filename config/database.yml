@@ -20,6 +20,8 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# DB(MySQL)への接続設定
+# .envで設定した環境変数を使用
 production:
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>
