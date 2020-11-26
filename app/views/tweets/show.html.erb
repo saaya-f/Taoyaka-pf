@@ -27,7 +27,9 @@
             </td>
             <td><%= @tweet.title %></td>
             <td><%= @tweet.body %></td>
-            <td><%= render "favorites/favorite_btn", tweet: @tweet %></td>
+            <td id="likes_buttons_<%= @tweet.id %>">
+              <%= render "favorites/favorite_btn", tweet: @tweet %>
+            </td>
             <td>コメント数<%= @tweet.comments.count %></td>
             <% if @tweet.user == current_user %>
               <td><%= link_to "編集", edit_tweet_path(@tweet), class:"btn-sm btn-info" %></td>
