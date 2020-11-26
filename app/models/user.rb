@@ -24,6 +24,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest_ggg@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = 'ゲスト'
+      user.introduction = 'こちらはゲストユーザーです。ぜひ使用感をお試しください。'
     end
   end
 

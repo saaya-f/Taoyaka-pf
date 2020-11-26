@@ -1,5 +1,5 @@
 <% if tweet.favorited_by?(current_user) %>
-  <%= link_to tweet.favorites.count, tweet_favorites_path(tweet), method: :delete, class: "glyphicon glyphicon-heart" %>
+  <%= link_to tweet.favorites.count, tweet_favorites_path(tweet), method: :delete, remote: true, class: "glyphicon glyphicon-heart" %>
 <% else %>
-  <%= link_to tweet.favorites.count, tweet_favorites_path(tweet), method: :post, class: "glyphicon glyphicon-heart-empty" %>
+  <%= link_to tweet.favorites.count, tweet_favorites_path(tweet), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" %>
 <% end %>
