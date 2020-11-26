@@ -1,1 +1,1 @@
-$('#likes_buttons_<%= @tweet.id %>').html("<%= j(render "favorites/favorite_btn", tweet: @tweet) %>");
+$('#favorites_buttons_<%= @tweet.id %>').html("<%= j(render "favorites/favorite_btn", tweet: @tweet) %>");

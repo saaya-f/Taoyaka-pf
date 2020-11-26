@@ -1,0 +1,12 @@
+<%= form_with(model:[tweet, comment], remote: true) do |f| %>
+  <!--<%= render "devise/shared/error_messages", resource: comment %>-->
+  <!--<% flash.each do |name, msg| %>-->
+    <!--<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>-->
+  <!--<% end %>-->
+  <div class="field row">
+    <%= f.text_area :tweet_comment, rows: "5", placeholder: "コメントを書いて反応してあげましょう！", class:"col-xs-12" %>
+  </div>
+  <div class="text-right">
+    <%= f.submit "送信する", class:"btn btn-primary" %>          
+  </div>
+<% end %>
