@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_comment, only: %i[destroy]
 
   def create
     @tweet = Tweet.find(params[:tweet_id])
@@ -16,14 +17,19 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:tweet_id])
-    @comments = @tweet.comments
-    Comment.find_by(id: params[:id], tweet_id: params[:tweet_id]).destroy
+    @comment.destroy!
+    # @tweet = Tweet.find(params[:tweet_id])
+    # @comments = @tweet.comments
+    # Comment.find_by(id: params[:id], tweet_id: params[:tweet_id]).destroy
     # flash[:success] = "コメントを削除しました。"
     # redirect_to tweet_path(params[:tweet_id])
   end
 
   private
+ 
+  def set_comment
+    @comment = Comment.find_by(id: params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:tweet_comment)

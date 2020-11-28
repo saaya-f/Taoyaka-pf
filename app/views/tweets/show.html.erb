@@ -7,44 +7,39 @@
   </div>
   <div class="col-xs-9">
     <h3 class="titlebar"> 投稿</h3>
-      <table class="table">
-        <head>
-          <tr>
-            <th></th>
-            <th>タイトル</th>
-            <th>内容</th>
-            <th>いいね</th>
-            <th>コメント</th>
-          </tr>
-        </head>
-        <body>
-          <tr>
-            <td>
-              <%= link_to user_path(@tweet.user) do %>
-              <%= attachment_image_tag @tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
-              <%= @tweet.user.name %>
-              <% end %>
-            </td>
-            <td><%= @tweet.title %></td>
-            <td><%= @tweet.body %></td>
-            <td id="favorites_buttons_<%= @tweet.id %>">
-              <%= render "favorites/favorite_btn", tweet: @tweet %>
-            </td>
-            <td>コメント数<%= @tweet.comments.count %></td>
+      <div class="tweet-box">
+        <div class="tweet-box-profile">
+          <%= link_to user_path(@tweet.user) do %>
+          <%= attachment_image_tag @tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+          <%= @tweet.user.name %>
+          <% end %>
+        </div>
+        <div class="tweet-box-content">
+          <div class="tweet-box-title"><%= @tweet.title %></div>
+          <div class="tweet-box-body"><%= @tweet.body %></div>
+        </div>
+        <div class="tweet-box-reaction">
+          <div> <%= l @tweet.created_at %></div>
+          <div id="favorites_buttons_<%= @tweet.id %>">
+            <%= render "favorites/favorite_btn", tweet: @tweet %>
+          </div>
+          <div class="glyphicon glyphicon-list-alt"><%= @tweet.comments.count %></div>
+          <div>
             <% if @tweet.user == current_user %>
-              <td><%= link_to "編集", edit_tweet_path(@tweet), class:"btn-sm btn-info" %></td>
-              <td><%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger" %></td>
+              <%= link_to "編集", edit_tweet_path(@tweet), class:"btn-sm btn-info" %>
+              <%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn-sm btn-danger" %>
             <% end %>
-          </tr>
-        </body>
-      </table>
-      
-      <!--コメント表示一覧パーシャル-->
-      <div id="comments_area">
-      <h3 class="titlebar"> 共感の声たち</h3>
-        <%= render "comments/comment_list", comments: @comments %>
+          </div>
+        </div>
       </div>
+      
+      <!--コメント一覧パーシャル-->
+      <div id="comments_area">
+      <h3 class="titlebar"> みんなの反応</h3>
+        <%= render "comments/comment_list", comments: @comments %>
 
+      </div>
+      
       <!--コメント投稿フォームパーシャル-->
       <h3 class="titlebar"> コメントする</h3>
       <%= render "comments/comment_form", {tweet: @tweet, comment: @comment} %>
