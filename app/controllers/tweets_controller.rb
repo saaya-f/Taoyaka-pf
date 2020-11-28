@@ -28,7 +28,8 @@ class TweetsController < ApplicationController
     @user = @tweet.user
     @comment = Comment.new
     # 退会していない全ユーザーのコメントを取得（退会ユーザのコメントは取得されない）
-    @comments = @tweet.comments.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
+    # @comments = @tweet.comments.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
+    @comments = @tweet.comments.eager_load(:user).where(users: {is_deleted: false})
   end
 
   def edit

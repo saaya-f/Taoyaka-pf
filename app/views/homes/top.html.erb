@@ -30,6 +30,9 @@
       About たおやか？
     </p>
     <p class="main-visual-text">
+      -- たおやか --<br>
+      【芯の強さがあり、しなやかで優しいさま】の意味を持つ大和言葉です。<br>
+      <br>
       日々の頑張りを誰かと共有したい、認めてもらいたい。<br>
       自分が生活できているのは誰かのおかげ。当たり前に過ぎていく物事に目を向け、感謝したい。<br>
       <br>
@@ -63,11 +66,11 @@
             <td><%= truncate((tweet.body), length: 15) %></td>
             <td class="favorite-btn">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-              <%= tweet.favorites.count %> 件
+              <%= tweet.favorites.count %>
             </td>
             <td class="comment-sum">
               <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-              <%= tweet.comments.count %> 件
+              <%= tweet.comments.count %>
             </td>
             <td>
               <!--lメソッドで現地時間に対応-->

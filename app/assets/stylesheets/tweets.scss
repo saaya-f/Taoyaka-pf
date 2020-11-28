@@ -1,3 +1,30 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tweet-box {
+  padding: 20px;
+  border: 2px solid;
+  border-color: #f5faed;
+  background-color: #fcfcfa;
+  border-radius: 30px;
+  box-shadow: 4px 4px 8px #b4866b;
+}
+
+.tweet-box-reaction {
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.tweet-box-reaction > div {
+  margin: 10px;
+}
+
+.glyphicon.glyphicon-list-alt {
+  padding-top: 2px;
+}
+
+.tweet-box-title {
+  font-weight: bolder;
+}

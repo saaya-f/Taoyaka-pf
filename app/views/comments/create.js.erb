@@ -1,2 +1,2 @@
-$("#comments_area").html("<%= j(render 'comment_list', {comments: @comments}) %>");
+$("#comments_area").append("<%= j(render 'comment_area',{ comment: @comment }) %>");
 $('textarea').val('')
