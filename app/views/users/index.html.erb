@@ -7,40 +7,19 @@
   </div>
   <div class="col-xs-9">
     <h3 class="titlebar"> ユーザーの皆様</h3>
-    <% @users.each do |user| %>
-      <div class="user-box">
-        <div class="user-box-profile">
-          <%= attachment_image_tag user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
-          <%= user.name %>
-        </div>
-        <div class="user-box-more">
-          <%= link_to "もっと見てみる →", user_path(user) %>
-        </div>
-      </div>
-    <% end %>
-    
-    
-      <!--<table class="table">-->
-      <!--  <head>-->
-      <!--    <tr>-->
-      <!--      <th></th>-->
-      <!--      <th>ユーザー</th>-->
-      <!--      <th>フォロー数</th>-->
-      <!--      <th>フォロワー数</th>-->
-      <!--    </tr>-->
-      <!--  </head>-->
-      <!--  <body>-->
-      <!--    <% @users.each do |user| %>-->
-      <!--      <tr>-->
-      <!--        <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>-->
-      <!--        <td><%= user.name %></td>-->
-      <!--        <td></td>-->
-      <!--        <td></td>-->
-      <!--        <td><%= link_to "more", user_path(user) %></td>-->
-      <!--      </tr>-->
-      <!--    <% end %> -->
-      <!--  </body>-->
-      <!--</table>-->
+      <table class="table">
+        <body>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= attachment_image_tag user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %></td>
+              <td><%= user.name %></td>
+              <td></td>
+              <td></td>
+              <td><%= link_to "more", user_path(user) %></td>
+            </tr>
+          <% end %> 
+        </body>
+      </table>
       <div class="text-center">
         <%= paginate @users %>
       </div>

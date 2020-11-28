@@ -1,37 +1,65 @@
 <!--投稿一覧パーシャル-->
-<table class="table table-hover">
-  <head>
-    <tr>
-      <th></th>
-      <th>タイトル</th>       
-      <th>内容</th>
-      <th>いいね</th>
-      <th>コメント</th>
-    </tr>
-  </head>
-  <body>
-    <% tweets.each do |tweet| %>
-      <tr>
-        <td>
-          <%= attachment_image_tag tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
-          <%= link_to tweet.user.name, user_path(tweet.user_id)%></td>
-        <td>
-          <%= link_to tweet.title, tweet_path(tweet) %>
-        </td>
-        <td>
-          <%= tweet.body %>
-        </td>
-        <td id="favorites_buttons_<%= tweet.id %>">
-          <%= render "favorites/favorite_btn", tweet: tweet %>
-        </td>
-        <td class="comment-sum">
-          <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-          <%= tweet.comments.count %> 件
-        </td>
-      </tr>
-    <% end %>
-  </body>
-</table>
+<% tweets.each do |tweet| %>
+  <div class="tweet-box">
+    <div class="tweet-box-profile">
+      <%= attachment_image_tag tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>
+      <%= link_to tweet.user.name, user_path(tweet.user_id)%></td>
+    </div>
+    <div class="tweet-box-content">
+      <div class="tweet-box-title"> <%= link_to tweet.title, tweet_path(tweet) %></div>
+      <div class="tweet-box-body"><%= tweet.body %></div>
+    </div>
+    <div class="tweet-box-reaction">
+      <div> <%= l tweet.created_at %></div>
+      <div id="favorites_buttons_<%= tweet.id %>">
+        <%= render "favorites/favorite_btn", tweet: tweet %>
+      </div>
+      <div class="comment-sum">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+        <%= tweet.comments.count %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="text-center">
   <%= paginate tweets %>
 </div>
+
+
+<!--<table class="table table-hover">-->
+  <!--<head>-->
+  <!--  <tr>-->
+  <!--    <th></th>-->
+  <!--    <th>タイトル</th>       -->
+  <!--    <th>内容</th>-->
+  <!--    <th>いいね</th>-->
+  <!--    <th>コメント</th>-->
+  <!--  </tr>-->
+  <!--</head>-->
+  <!--<body>-->
+  <!--  <% tweets.each do |tweet| %>-->
+  <!--    <tr>-->
+  <!--      <td>-->
+        <!--  <%= attachment_image_tag tweet.user, :profile_image, size: "50x50", format: "jpeg", fallback: "no_image.jpg" %>-->
+        <!--  <%= link_to tweet.user.name, user_path(tweet.user_id)%></td>-->
+        <!--<td>-->
+        <!--  <%= link_to tweet.title, tweet_path(tweet) %>-->
+        <!--</td>-->
+        <!--<td>-->
+        <!--  <%= tweet.body %>-->
+        <!--</td>-->
+      <!--  <td id="favorites_buttons_<%= tweet.id %>">-->
+      <!--    <%= render "favorites/favorite_btn", tweet: tweet %>-->
+      <!--  </td>-->
+      <!--  <td class="comment-sum">-->
+      <!--    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>-->
+      <!--    <%= tweet.comments.count %> 件-->
+      <!--  </td>-->
+      <!--</tr>-->
+<!--    <% end %>-->
+<!--  </body>-->
+<!--</table>-->
+<!--<div class="text-center">-->
+<!--  <%= paginate tweets %>-->
+<!--</div>-->
