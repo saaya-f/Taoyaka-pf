@@ -37,5 +37,4 @@ https://docs.google.com/spreadsheets/d/1GX3y-Qv2n-WwV28IbOLG60I7V3Hosd6Qgh2mbQVW
 ## 使用素材
 - ぱくたそ https://www.pakutaso.com/
 - O-DAN https://o-dan.net/ja/
-- Font Free https://fontfree.me/
-- ICOOON MONO https://icooon-mono.com/
+
