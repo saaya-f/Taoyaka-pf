@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tweet-box {
-  margin: 10px;
   padding: 20px;
   border: 2px solid;
   border-color: #f5faed;
@@ -28,4 +27,12 @@
 
 .tweet-box-title {
   font-weight: bolder;
+}
+
+div.sentiment-color-green {
+  color: green;
+}
+
+div.sentiment-color-red {
+  color: red; 
 }

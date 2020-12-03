@@ -10,6 +10,9 @@
       <div class="tweet-box-body"><%= tweet.body %></div>
     </div>
     <div class="tweet-box-reaction">
+      <div class="sentiment-score <% if tweet.score > 0 %> sentiment-color-green <% else %> sentiment-color-red <% end %>">
+        この時の感情スコア： [<%= tweet.score %>]
+      </div>
       <div> <%= l tweet.created_at %></div>
       <div id="favorites_buttons_<%= tweet.id %>">
         <%= render "favorites/favorite_btn", tweet: tweet %>
