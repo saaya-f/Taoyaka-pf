@@ -10,6 +10,8 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    # 投稿した本文をAPI側に渡す
+    @tweet.score = Language.get_data(tweet_params[:body])
     @tweets = Tweet.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
     @tweet.user_id = current_user.id
     @user = current_user
