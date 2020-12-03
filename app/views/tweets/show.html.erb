@@ -19,6 +19,7 @@
           <div class="tweet-box-body"><%= @tweet.body %></div>
         </div>
         <div class="tweet-box-reaction">
+          <div class="sentiment-score">この投稿の感情分析スコア[<%= @tweet.score %>]</div>
           <div> <%= l @tweet.created_at %></div>
           <div id="favorites_buttons_<%= @tweet.id %>">
             <%= render "favorites/favorite_btn", tweet: @tweet %>
