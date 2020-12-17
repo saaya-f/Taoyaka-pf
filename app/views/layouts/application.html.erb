@@ -19,6 +19,7 @@
     <div id="header">
       <%= render "layouts/header" %>
     </div>
+    
     <div class="container">
       <!--サクセスメッセージ 、エラーメッセージ-->
       <div class="text-center">
@@ -26,9 +27,9 @@
           <%= content_tag(:p, value, class: "alert alert-#{key}") %>
         <% end %>
       </div>
-      
       <%= yield %>      
     </div>
+    
     <div id="footer">
       <%= render "layouts/footer" %>
     </div>
