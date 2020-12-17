@@ -18,7 +18,18 @@ class User < ApplicationRecord
 
   enum age: [ "10代", "20代", "30代", "40代", "50代", "60代以上"]
   enum work: ["事務職", "医療・福祉職", "サービス業", "専業主婦", "学生", "その他"]
-
+  
+  scope :search, -> (search_params) do
+    return if search_params.blank?
+    
+    name_like(search_params[:name])
+     .age_is(search_params[:age])
+     .work_is(search_params[:work])
+  end
+  scope :name_like, -> (name){ where('name LIKE ?', "%#{name}%") if name.present? }
+  scope :age_is, -> (age){ where(age: age) if age.present? }
+  scope :work_is, -> (work){ where(work: work) if work.present? }
+  
   # ゲストユーザー
   def self.guest
     find_or_create_by!(email: 'guest_ggg@example.com') do |user|
@@ -39,4 +50,5 @@ class User < ApplicationRecord
   def guest?
     email == 'guest_ggg@example.com'
   end
+  
 end

@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @tweet = Tweet.new
-    @users = User.page(params[:page]).per(10)
+    @search_params = user_search_params
+    @users = User.search(@search_params).page(params[:page]).per(10)
   end
 
   def show
@@ -49,6 +50,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:profile_image, :name, :email, :age, :work, :introduction)
+  end
+  
+  def user_search_params
+    params.fetch(:search, {}).permit(:name, :age, :work)
   end
 
   def redirect_not_match_user(user_id)

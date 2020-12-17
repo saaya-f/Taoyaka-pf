@@ -1,4 +1,28 @@
 <div class="row">
+    <div class="search-form">
+      <p>名前、年齢、仕事をそれぞれ洗濯してユーザーを探せます。<br>
+      単独でも検索できますので、ぜひ活用してみましょう！
+      </p>
+      <%= form_with(scope: :search, url: users_path, method: :get, local: true) do |f| %>
+        <div class="field">
+          <%= f.label :name, "名前" %>
+          <%= f.text_field :name, value: @search_params[:name], placeholder: "ユーザー名を入力"  %>          
+        </div>
+        <div class="field">
+          <%= f.label "年齢" %>
+          <%= f.collection_radio_buttons :age, User.ages, :first, :first do |r| %>
+            <%= r.radio_button(checked: r.value == @search_params[:age]) + r.text %>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label "仕事" %>
+          <%= f.collection_radio_buttons :work, User.works, :first, :first do |r| %>
+            <%= r.radio_button(checked: r.value == @search_params[:work]) + r.text %>
+          <% end %>
+        </div>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
   <div class="col-xs-3">
     <h3 class="titlebar"> 投稿する</h3>
       <%= render 'tweets/tweet_form', tweet: @tweet %>
