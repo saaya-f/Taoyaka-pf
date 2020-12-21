@@ -8,7 +8,7 @@
   <div class="col-xs-9">
     <h3 class="titlebar"> ユーザー検索</h3>
     <div class="search-form">
-      <p>下記項目を選択してユーザーを探せます。単独でも検索できますので、ぜひ活用してみましょう！</p>
+      <p>下記項目からユーザーを探せます。単独でも検索できますので、ぜひ活用してみましょう！</p>
       <%= form_with(scope: :search, url: users_path, method: :get, local: true) do |f| %>
         <div class="search-field">
           <%= f.label :name, "名前", class:"search-label" %>
@@ -25,7 +25,7 @@
           <%= f.collection_radio_buttons :work, User.works, :first, :first do |r| %>
             <%= r.radio_button(checked: r.value == @search_params[:work]) + r.text %>
           <% end %>
-          <%= f.submit "検索", class:"btn btn-info" %>
+          <%= f.submit "検索", class:"btn btn-info btn-sm" %>
         </div>
       <% end %>
     </div>

@@ -21,14 +21,13 @@ class User < ApplicationRecord
   
   scope :search, -> (search_params) do
     return if search_params.blank?
-    
     name_like(search_params[:name])
      .age_is(search_params[:age])
      .work_is(search_params[:work])
   end
-  scope :name_like, -> (name){ where('name LIKE ?', "%#{name}%") if name.present? }
-  scope :age_is, -> (age){ where(age: age) if age.present? }
-  scope :work_is, -> (work){ where(work: work) if work.present? }
+  scope :name_like, -> (name){where('name LIKE ?', "%#{name}%") if name.present?}
+  scope :age_is, -> (age){where(age: age) if age.present?}
+  scope :work_is, -> (work){where(work: work) if work.present?}
   
   # ゲストユーザー
   def self.guest

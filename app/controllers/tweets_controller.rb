@@ -4,8 +4,9 @@ class TweetsController < ApplicationController
   def index
     @tweet = Tweet.new
     # 退会していない全ユーザーの投稿を取得（退会ユーザの投稿は取得されない）
-    @tweets = Tweet.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
     @user = current_user
+    @search_params = tweet_search_params
+    @tweets = Tweet.search(@search_params).eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
   end
 
   def create
@@ -60,5 +61,9 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:title, :body)
+  end
+  
+  def tweet_search_params
+    params.fetch(:search,{}).permit(:title, :body)
   end
 end
