@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships
 
   enum age: [ "10代", "20代", "30代", "40代", "50代", "60代以上"]
   enum work: ["事務職", "医療・福祉職", "サービス業", "専業主婦", "学生", "その他"]
@@ -50,4 +54,15 @@ class User < ApplicationRecord
     email == 'guest_ggg@example.com'
   end
   
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+  
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+  
+  def following?(other_user)
+    following.include?(other_user)
+  end
 end
