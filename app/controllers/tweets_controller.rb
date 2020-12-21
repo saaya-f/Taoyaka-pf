@@ -1,19 +1,21 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
+  
+  LIMIT = 5
 
   def index
     @tweet = Tweet.new
-    # 退会していない全ユーザーの投稿を取得（退会ユーザの投稿は取得されない）
     @user = current_user
     @search_params = tweet_search_params
-    @tweets = Tweet.search(@search_params).eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
+    # 退会していない全ユーザーの投稿を取得（退会ユーザの投稿は取得されない）
+    @tweets = Tweet.search(@search_params).eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(LIMIT)
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
     # 投稿した本文をAPI側に渡す
     @tweet.score = Language.get_data(tweet_params[:body])
-    @tweets = Tweet.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(5)
+    @tweets = Tweet.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(LIMIT)
     @tweet.user_id = current_user.id
     @user = current_user
     if @tweet.save

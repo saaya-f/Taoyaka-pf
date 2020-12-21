@@ -1,19 +1,21 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_guest_user!, only: [:edit]
+  
+  LIMIT = 10
 
   def index
     @user = current_user
     @tweet = Tweet.new
     @search_params = user_search_params
-    @users = User.search(@search_params).page(params[:page]).per(10)
+    @users = User.search(@search_params).page(params[:page]).per(LIMIT)
   end
 
   def show
     @user = User.find(params[:id])
     @tweet = Tweet.new
     # 退会していないユーザーの投稿を取得（退会ユーザの投稿は取得されない）
-    @tweets = @user.tweets.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(10)
+    @tweets = @user.tweets.eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(LIMIT)
   end
 
   def edit
