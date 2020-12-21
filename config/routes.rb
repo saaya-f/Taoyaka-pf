@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       patch 'quit'
       get 'out'
     end
+    member do
+      get :following, :followers
+    end
+    resource :relationships, only: %i[create destroy]
   end
 
   resources :tweets, except: [:new] do
