@@ -2,6 +2,8 @@ class Tweet < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :tweet_tags, dependent: :destroy
+  has_many :tags, through: :tweet_tags, dependent: :destroy
 
   validates :title, length: { in: 2..25 }
   validates :body, length: { minimum: 2 }
