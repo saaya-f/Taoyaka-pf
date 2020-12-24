@@ -10,9 +10,14 @@
       <div class="tweet-box-body"><%= tweet.body %></div>
     </div>
     <div class="tweet-box-reaction">
+      <div>
+        <% tweet.tags.each do |tag| %>
+          <span class="badge"><%= tag.name %></span>
+        <% end %>
+      </div>
       <!--スコアによって表示の色を変化させる-->
       <div class="sentiment-score <%= tweet.score > 0 ? "sentiment-color-green" : "sentiment-color-red" %>">
-        この時の感情スコア： [<%= tweet.score %>]
+        AIの感情分析： [<%= tweet.score %>]
       </div>
       <div> <%= l tweet.created_at %></div>
       <div id="favorites_buttons_<%= tweet.id %>">

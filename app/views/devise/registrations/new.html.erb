@@ -8,11 +8,11 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class='field row'>
           <label class="user-name"><span class="required">必須</span> ニックネーム</label>
-          <%= f.text_field :name, placeholder:"ニックネームを入力してください", class:"col-xs-12"%>
+          <%= f.text_field :name, autofocus: true, placeholder:"ニックネームを入力してください", class:"col-xs-12"%>
         </div>
         <div class="field row">
           <label class="user-email"><span class="required">必須</span> メールアドレス</label>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレスを入力してください", class:"col-xs-12" %>
+          <%= f.email_field :email, autocomplete: "email", placeholder:"メールアドレスを入力してください", class:"col-xs-12" %>
         </div>
         <div class="field row">
           <label class="user-password"><span class="required">必須</span> パスワード</label>

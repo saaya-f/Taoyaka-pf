@@ -2,11 +2,22 @@
   <%= render "layouts/error", obj: f.object %>
   <div class="field row">
     <%= f.label "タイトル" %>
-    <%= f.text_area :title, class:"col-xs-12 tweet_title", rows: "2", autofocus: "true", placeholder: "タイトルを入力しましょう" %>
+    <%= f.text_area :title, class:"col-xs-12 tweet_title", rows: "2", autofocus: "true" %>
   </div>
   <div class="field row">
     <%= f.label "投稿内容" %>
     <%= f.text_area :body, class:"col-xs-12 tweet_body", rows: "10", placeholder: "頑張ったこと、気付きなど思いつくままに書いてみましょう" %>
+  </div>
+  <div class="feild row">
+    <label class="tweet-tag"><span class="glyphicon glyphicon-tags"></span> タグ</label>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class="form-check">
+        <%= tag.label class:"form-check-label" do %>
+          <%= tag.check_box class:"form-check-input" %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <div class="actions row">
     <%= f.submit "投稿する", class:"col-xs-12 btn btn-success" %>

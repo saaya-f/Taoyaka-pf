@@ -38,10 +38,12 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet = Tweet.find(params[:id])
+    @tag_list = @tweet.tags.pluck(:name)
   end
 
   def update
     tweet = Tweet.find(params[:id])
+    @tag_list = params[:tweet][:tag_ids]
     if tweet.update(tweet_params)
       flash[:success] = "編集内容を保存しました。"
       redirect_to tweet_path(tweet.id)
@@ -62,7 +64,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:title, :body)
+    params.require(:tweet).permit(:title, :body, tag_ids: [])
   end
   
   def tweet_search_params
