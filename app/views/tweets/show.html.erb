@@ -19,6 +19,11 @@
           <div class="tweet-box-body"><%= @tweet.body %></div>
         </div>
         <div class="tweet-box-reaction">
+          <div>
+            <% @tweet.tags.each do |tag| %>
+              <span class="badge"><%= tag.name %></span>
+            <% end %>
+          </div>
           <div class="sentiment-score <% if @tweet.score > 0 %> sentiment-color-green <% else %> sentiment-color-red <% end %>">
             この時の感情スコア： [<%= @tweet.score %>]
           </div>
