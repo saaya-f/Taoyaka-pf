@@ -25,7 +25,7 @@
             <% end %>
           </div>
           <div class="sentiment-score <% if @tweet.score > 0 %> sentiment-color-green <% else %> sentiment-color-red <% end %>">
-            この時の感情スコア： [<%= @tweet.score %>]
+            AIの感情分析： [<%= @tweet.score %>]
           </div>
           <div> <%= l @tweet.created_at %></div>
           <div id="favorites_buttons_<%= @tweet.id %>">
