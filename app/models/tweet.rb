@@ -12,9 +12,13 @@ class Tweet < ApplicationRecord
     return if search_params.blank?
     title_like(search_params[:title])
       .body_like(search_params[:body])
+      .tag_eq(search_params[:tag_id])
   end
   scope :title_like, ->(title){where('title LIKE ?', "%#{title}%") if title.present?}
   scope :body_like, ->(body){where('body LIKE ?', "%#{body}%") if body.present?}
+  scope :tag_eq, ->(tag_id) do
+    where(tweet_tags: {tag_id: tag_id}) if tag_id.present?
+  end
  
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
