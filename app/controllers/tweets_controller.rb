@@ -8,7 +8,11 @@ class TweetsController < ApplicationController
     @user = current_user
     @search_params = tweet_search_params
     # 退会していない全ユーザーの投稿を取得（退会ユーザの投稿は取得されない）
-    @tweets = Tweet.search(@search_params).eager_load(:user).where(users: {is_deleted: false}).page(params[:page]).per(LIMIT)
+    @tweets = Tweet.eager_load(:user, :tweet_tags)
+      .search(@search_params)
+      .where(users: {is_deleted: false})
+      .page(params[:page])
+      .per(LIMIT)
   end
 
   def create
@@ -68,6 +72,6 @@ class TweetsController < ApplicationController
   end
   
   def tweet_search_params
-    params.fetch(:search,{}).permit(:title, :body)
+    params.fetch(:search,{}).permit(:title, :body, :tag_id)
   end
 end
