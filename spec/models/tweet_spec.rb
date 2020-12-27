@@ -36,5 +36,10 @@ RSpec.describe "Tweetモデルのテスト", type: :model do
         expect(Tweet.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+    context "Commentモデルとの関係" do
+      it "N対1になっている" do
+        expect(Tweet.reflect_on_association(:comments).macro).to eq :has_many
+      end
+    end
   end
 end
