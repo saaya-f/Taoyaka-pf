@@ -23,14 +23,4 @@ RSpec.describe "Relationshipモデルのテスト", type: :model do
       end
     end
   end
-  # describe "アソシエーションのテスト" do
-  #   it { should respond_to(:follwer) }
-  #   it { should respond_to(:follwed) }
-  #   it "followメソッドはフォローしているユーザーを返すこと" do
-  #     expect(active.follower).to  eq user
-  #   end
-  #   it "followerメソッドはフォローされているユーザーを返すこと" do
-  #     expect(active.followed).to eq other_user
-  #   end
-  # end
 end
