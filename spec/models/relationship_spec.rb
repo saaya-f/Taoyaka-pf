@@ -12,14 +12,14 @@ RSpec.describe "Relationshipモデルのテスト", type: :model do
       end
     end
     
-    describe "存在性のテスト" do
+    context "存在性のテスト" do
       it "フォローしている" do
         relationship.follower_id = nil
-        expect(relationship).to be_invaild
+        expect(relationship).to be_invalid
       end
       it "フォローされている" do
         relationship.followed_id = nil
-        expect(relationship).to be_invaild
+        expect(relationship).to be_invalid
       end
     end
   end

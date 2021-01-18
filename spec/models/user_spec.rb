@@ -31,4 +31,27 @@ RSpec.describe "Userモデルのテスト", type: :model do
       end
     end
   end
+  describe "relationshipモデルのバリデーション" do
+    let(:user) { FactoryBot.create(:user) }
+    let(:other_user) { FactoryBot.create(:user) }
+
+    before { user.follow(other_user) }
+    
+    context "followメソッド" do
+      it "フォローが成功する" do
+        expect(user.following?(other_user)).to be_truthy
+      end
+    end
+    context "followersメソッド" do
+      it "succeeds" do
+        expect(other_user.followers.include?(user)).to be_truthy
+      end
+    end
+    context "unfollowメソッド" do
+      it "フォロー解除が成功する" do
+        user.unfollow(other_user)
+        expect(user.following?(other_user)).to be_falsy
+      end
+    end
+  end
 end
